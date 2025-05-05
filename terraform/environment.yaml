@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://github.com/Azure/deployment-environments/releases/download/2022-11-11-preview/manifest.schema.json
+name: LoB-App
+version: 1.0.0
+summary: This is a demo application for the Global Azure 2025 event.
+description: |
+  This application is a simple web app that demonstrates the use of Azure services.
+  It is designed to be deployed in multiple environments (development, staging, production).
+  The application uses a containerized approach and is deployed using Azure Container Apps.
+runner: globalazure2025nz-crbne5f9a2cufug9.azurecr.io/ade-terraform:1.11.4
+templatePath: main.tf
+
+parameters:
+  - id: app_version
+    name: Application Version
+    description: Version of the application to deploy
+    type: string
+    default: 1.0.0
+    allowed:
+      - 1.0.0
+      - 1.1.1
+      - 1.2.0
+
+  - id: greeting
+    name: Greeting
+    description: Greeting message to display to the user
+    type: string
+    default: Hello, World!
