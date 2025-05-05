@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: #0078d4;
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        main {
+            max-width: 800px;
+            width: 90%;
+            margin: 2rem auto;
+            background-color: white;
+            padding: 2rem;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            margin-top: 0;
+            text-align: center;
+        }
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .logo-container img {
+            max-width: 100%;
+            max-height: 256px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-gap: 1rem;
+            margin-top: 2rem;
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #0078d4;
+        }
+        footer {
+            margin-top: auto;
+            width: 100%;
+            background-color: #0078d4;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .environment-tag {
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .development {
+            background-color: #ccf0cc;
+            color: #006600;
+        }
+        .testing {
+            background-color: #fcefcf;
+            color: #8a6300;
+        }
+        .demo {
+            background-color: #ffcccc;
+            color: #990000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>{{ .Title }}</h1>
+    </header>
+    
+    <main>
+        <div class="logo-container">
+            <img src="/static/azure-deployment-environments-logo.png" alt="Azure Deployment Environments Logo">
+        </div>
+        
+        <div class="info-grid">
+            <div class="info-label">Greeting:</div>
+            <div>{{ .Greeting }}</div>
+            
+            <div class="info-label">App Version:</div>
+            <div>{{ .AppVersion }}</div>
+            
+            <div class="info-label">Environment Name:</div>
+            <div>{{ .EnvName }}</div>
+            
+            <div class="info-label">Environment Type:</div>
+            <div>
+                <span class="environment-tag {{ .EnvType }}">{{ .EnvType }}</span>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        &copy; 2025 Azure Deployment Environments Demo
+    </footer>
+</body>
+</html>
